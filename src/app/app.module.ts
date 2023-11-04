@@ -9,6 +9,7 @@ import {MenuComponent} from "./components/menu/menu.component";
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { LightInfoComponent } from './components/light-info/light-info.component';
 import { MyTransactionsComponent } from './pages/my-transactions/my-transactions.component';
+import { MyContactListComponent } from './pages/my-contact-list/my-contact-list.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { MyTransactionsComponent } from './pages/my-transactions/my-transactions
         MenuComponent,
         UserDashboardComponent,
         LightInfoComponent,
-        MyTransactionsComponent
+        MyTransactionsComponent,
+        MyContactListComponent
     ],
   imports: [
     BrowserModule,
