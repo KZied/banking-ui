@@ -8,6 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import {MenuComponent} from "./components/menu/menu.component";
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { LightInfoComponent } from './components/light-info/light-info.component';
+import { MyTransactionsComponent } from './pages/my-transactions/my-transactions.component';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import { LightInfoComponent } from './components/light-info/light-info.component
         RegisterComponent,
         MenuComponent,
         UserDashboardComponent,
-        LightInfoComponent
+        LightInfoComponent,
+        MyTransactionsComponent
     ],
   imports: [
     BrowserModule,
