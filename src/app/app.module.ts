@@ -12,6 +12,7 @@ import { MyTransactionsComponent } from './pages/my-transactions/my-transactions
 import { MyContactListComponent } from './pages/my-contact-list/my-contact-list.component';
 import { NewTransactionComponent } from './pages/new-transaction/new-transaction.component';
 import { NewContactComponent } from './pages/new-contact/new-contact.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { NewContactComponent } from './pages/new-contact/new-contact.component';
         MyTransactionsComponent,
         MyContactListComponent,
         NewTransactionComponent,
-        NewContactComponent
+        NewContactComponent,
+        ProfileComponent
     ],
   imports: [
     BrowserModule,
