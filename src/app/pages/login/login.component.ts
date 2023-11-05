@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -7,8 +7,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  urlParam = 'Not yet defined';
+  queryParam = 'Not available yet';
+
   //Inject the router service
-  constructor(private router:Router) {
+  constructor(
+    private router:Router,
+    private activatedRoute: ActivatedRoute) {
+    console.log(this.activatedRoute);
+    // get param from URL
+    this.urlParam = this.activatedRoute.snapshot.params['someText'];
+    this.queryParam = this.activatedRoute.snapshot.queryParams['x'];
   }
 
   ngOnInit(): void {
