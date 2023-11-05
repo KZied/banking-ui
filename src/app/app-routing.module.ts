@@ -9,6 +9,9 @@ import {MyContactListComponent} from "./pages/my-contact-list/my-contact-list.co
 import {NewTransactionComponent} from "./pages/new-transaction/new-transaction.component";
 import {NewContactComponent} from "./pages/new-contact/new-contact.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
+import {MainAdminPageComponent} from "./admin/main-admin-page/main-admin-page.component";
+import {ManageUsersComponent} from "./admin/manage-users/manage-users.component";
+import {AdminDashboardComponent} from "./admin/admin-dashboard/admin-dashboard.component";
 
 const routes: Routes = [
   {
@@ -58,6 +61,29 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'admin',
+    component: MainAdminPageComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: AdminDashboardComponent
+      },
+      {
+        path: 'customers',
+        component: ManageUsersComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      }
+    ]
+  }
 
 ];
 

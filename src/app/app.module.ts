@@ -15,6 +15,8 @@ import { NewContactComponent } from './pages/new-contact/new-contact.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ManageUsersComponent } from './admin/manage-users/manage-users.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
+import { MainAdminPageComponent } from './admin/main-admin-page/main-admin-page.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
     declarations: [
@@ -30,7 +32,9 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
         NewContactComponent,
         ProfileComponent,
         ManageUsersComponent,
-        MainPageComponent
+        MainPageComponent,
+        MainAdminPageComponent,
+        AdminDashboardComponent
     ],
   imports: [
     BrowserModule,
