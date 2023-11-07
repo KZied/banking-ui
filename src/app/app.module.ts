@@ -40,6 +40,10 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
     BrowserModule,
     AppRoutingModule
   ],
+  // we inject our services here OR make sure that the service has
+  // @Injectable({
+  //   providedIn: 'root'
+  // })
   providers: [],
   bootstrap: [AppComponent]
 })
