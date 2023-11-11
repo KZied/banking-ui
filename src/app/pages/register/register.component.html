@@ -1,33 +1,36 @@
 <div class="container-fluid card register-container">
   <h3 class="text-center">Create an account</h3>
   <hr>
+  <div *ngIf="errorMessages.length>0" class="alert alert-danger" role="alert">
+    <p *ngFor="let msg of errorMessages">{{msg}}</p>
+  </div>
   <div class="mb-3">
     <label for="firstname" class="form-label">First name</label>
-    <input type="text" class="form-control" id="firstname" placeholder="name@First name.com">
+    <input [(ngModel)]="userDto.firstName" type="text" class="form-control" id="firstname" placeholder="name@First name.com">
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Last name</label>
-    <input type="text" class="form-control" id="lastname" placeholder="Last name">
+    <input [(ngModel)]="userDto.lastName" type="text" class="form-control" id="lastname" placeholder="Last name">
   </div>
   <div class="mb-3">
-    <label for="login" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+    <label for="email" class="form-label">Email address</label>
+    <input [(ngModel)]="userDto.email" type="email" class="form-control" id="email" placeholder="name@example.com">
   </div>
   <div class="mb-3">
     <label for="password" class="form-label">Password</label>
-    <input type="password" class="form-control" id="pasword" placeholder="Password">
+    <input [(ngModel)]="userDto.password" type="password" class="form-control" id="password" placeholder="Password">
   </div>
-  <div class="mb-3">
-    <label for="repeat-pasword" class="form-label">Repeat password</label>
-    <input type="password" class="form-control" id="repeat-pasword" placeholder="Password">
-  </div>
+<!--  <div class="mb-3">-->
+<!--    <label for="repeat-pasword" class="form-label">Repeat password</label>-->
+<!--    <input type="password" class="form-control" id="repeat-pasword" placeholder="Password">-->
+<!--  </div>-->
   <div class="d-flex justify-content-between mb-3">
-    <button type="button" class="btn btn-primary">
+    <button (click)="register()" type="button" class="btn btn-primary">
       <em class="fas fa-sign-in-alt">&nbsp;Register</em>
     </button>
     <div>
       Already have an account ?&nbsp;
-      <button (click)="register()" type="button" class="btn btn-link">
+      <button (click)="login()" type="button" class="btn btn-link">
         Login
       </button>
     </div>

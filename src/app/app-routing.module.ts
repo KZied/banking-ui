@@ -12,6 +12,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {MainAdminPageComponent} from "./admin/main-admin-page/main-admin-page.component";
 import {ManageUsersComponent} from "./admin/manage-users/manage-users.component";
 import {AdminDashboardComponent} from "./admin/admin-dashboard/admin-dashboard.component";
+import {ConfirmRegisterComponent} from "./pages/confirm-register/confirm-register.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'confirm-register',
+    component: ConfirmRegisterComponent
   },
   {
     path: 'user',
