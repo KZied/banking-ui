@@ -9,18 +9,18 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { findSumTransactionsByDate } from '../fn/statistics-controller/find-sum-transactions-by-date';
-import { FindSumTransactionsByDate$Params } from '../fn/statistics-controller/find-sum-transactions-by-date';
-import { getAccountBalance } from '../fn/statistics-controller/get-account-balance';
-import { GetAccountBalance$Params } from '../fn/statistics-controller/get-account-balance';
-import { highestDeposit } from '../fn/statistics-controller/highest-deposit';
-import { HighestDeposit$Params } from '../fn/statistics-controller/highest-deposit';
-import { highestTransfer } from '../fn/statistics-controller/highest-transfer';
-import { HighestTransfer$Params } from '../fn/statistics-controller/highest-transfer';
+import { findSumTransactionsByDate } from '../fn/statistics/find-sum-transactions-by-date';
+import { FindSumTransactionsByDate$Params } from '../fn/statistics/find-sum-transactions-by-date';
+import { getAccountBalance } from '../fn/statistics/get-account-balance';
+import { GetAccountBalance$Params } from '../fn/statistics/get-account-balance';
+import { highestDeposit } from '../fn/statistics/highest-deposit';
+import { HighestDeposit$Params } from '../fn/statistics/highest-deposit';
+import { highestTransfer } from '../fn/statistics/highest-transfer';
+import { HighestTransfer$Params } from '../fn/statistics/highest-transfer';
 import { TransactionSumDetails } from '../models/transaction-sum-details';
 
 @Injectable({ providedIn: 'root' })
-export class StatisticsControllerService extends BaseService {
+export class StatisticsService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }

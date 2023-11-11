@@ -9,22 +9,22 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { delete$ } from '../fn/user-controller/delete';
-import { Delete$Params } from '../fn/user-controller/delete';
-import { findAll } from '../fn/user-controller/find-all';
-import { FindAll$Params } from '../fn/user-controller/find-all';
-import { findById } from '../fn/user-controller/find-by-id';
-import { FindById$Params } from '../fn/user-controller/find-by-id';
-import { invalidateAccount } from '../fn/user-controller/invalidate-account';
-import { InvalidateAccount$Params } from '../fn/user-controller/invalidate-account';
-import { save } from '../fn/user-controller/save';
-import { Save$Params } from '../fn/user-controller/save';
+import { delete$ } from '../fn/user/delete';
+import { Delete$Params } from '../fn/user/delete';
+import { findAll } from '../fn/user/find-all';
+import { FindAll$Params } from '../fn/user/find-all';
+import { findById } from '../fn/user/find-by-id';
+import { FindById$Params } from '../fn/user/find-by-id';
+import { invalidateAccount } from '../fn/user/invalidate-account';
+import { InvalidateAccount$Params } from '../fn/user/invalidate-account';
+import { save } from '../fn/user/save';
+import { Save$Params } from '../fn/user/save';
 import { UserDto } from '../models/user-dto';
-import { validateAccount } from '../fn/user-controller/validate-account';
-import { ValidateAccount$Params } from '../fn/user-controller/validate-account';
+import { validateAccount } from '../fn/user/validate-account';
+import { ValidateAccount$Params } from '../fn/user/validate-account';
 
 @Injectable({ providedIn: 'root' })
-export class UserControllerService extends BaseService {
+export class UserService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }

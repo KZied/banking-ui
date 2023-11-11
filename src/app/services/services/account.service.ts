@@ -10,17 +10,17 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
 import { AccountDto } from '../models/account-dto';
-import { delete4 } from '../fn/account-controller/delete-4';
-import { Delete4$Params } from '../fn/account-controller/delete-4';
-import { findAll4 } from '../fn/account-controller/find-all-4';
-import { FindAll4$Params } from '../fn/account-controller/find-all-4';
-import { findById4 } from '../fn/account-controller/find-by-id-4';
-import { FindById4$Params } from '../fn/account-controller/find-by-id-4';
-import { save4 } from '../fn/account-controller/save-4';
-import { Save4$Params } from '../fn/account-controller/save-4';
+import { delete4 } from '../fn/account/delete-4';
+import { Delete4$Params } from '../fn/account/delete-4';
+import { findAll4 } from '../fn/account/find-all-4';
+import { FindAll4$Params } from '../fn/account/find-all-4';
+import { findById4 } from '../fn/account/find-by-id-4';
+import { FindById4$Params } from '../fn/account/find-by-id-4';
+import { save4 } from '../fn/account/save-4';
+import { Save4$Params } from '../fn/account/save-4';
 
 @Injectable({ providedIn: 'root' })
-export class AccountControllerService extends BaseService {
+export class AccountService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }

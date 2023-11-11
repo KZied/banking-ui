@@ -9,14 +9,14 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { authenticate } from '../fn/authentication-controller/authenticate';
-import { Authenticate$Params } from '../fn/authentication-controller/authenticate';
+import { authenticate } from '../fn/authentication/authenticate';
+import { Authenticate$Params } from '../fn/authentication/authenticate';
 import { AuthenticationResponse } from '../models/authentication-response';
-import { register } from '../fn/authentication-controller/register';
-import { Register$Params } from '../fn/authentication-controller/register';
+import { register } from '../fn/authentication/register';
+import { Register$Params } from '../fn/authentication/register';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationControllerService extends BaseService {
+export class AuthenticationService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }

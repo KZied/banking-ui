@@ -9,20 +9,20 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { delete1 } from '../fn/transaction-controller/delete-1';
-import { Delete1$Params } from '../fn/transaction-controller/delete-1';
-import { findAll1 } from '../fn/transaction-controller/find-all-1';
-import { FindAll1$Params } from '../fn/transaction-controller/find-all-1';
-import { findById1 } from '../fn/transaction-controller/find-by-id-1';
-import { FindById1$Params } from '../fn/transaction-controller/find-by-id-1';
-import { findByUserId } from '../fn/transaction-controller/find-by-user-id';
-import { FindByUserId$Params } from '../fn/transaction-controller/find-by-user-id';
-import { save1 } from '../fn/transaction-controller/save-1';
-import { Save1$Params } from '../fn/transaction-controller/save-1';
+import { delete1 } from '../fn/transaction/delete-1';
+import { Delete1$Params } from '../fn/transaction/delete-1';
+import { findAll1 } from '../fn/transaction/find-all-1';
+import { FindAll1$Params } from '../fn/transaction/find-all-1';
+import { findById1 } from '../fn/transaction/find-by-id-1';
+import { FindById1$Params } from '../fn/transaction/find-by-id-1';
+import { findByUserId } from '../fn/transaction/find-by-user-id';
+import { FindByUserId$Params } from '../fn/transaction/find-by-user-id';
+import { save1 } from '../fn/transaction/save-1';
+import { Save1$Params } from '../fn/transaction/save-1';
 import { TransactionDto } from '../models/transaction-dto';
 
 @Injectable({ providedIn: 'root' })
-export class TransactionControllerService extends BaseService {
+export class TransactionService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }

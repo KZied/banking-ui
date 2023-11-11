@@ -10,17 +10,17 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
 import { AddressDto } from '../models/address-dto';
-import { delete3 } from '../fn/address-controller/delete-3';
-import { Delete3$Params } from '../fn/address-controller/delete-3';
-import { findAll3 } from '../fn/address-controller/find-all-3';
-import { FindAll3$Params } from '../fn/address-controller/find-all-3';
-import { findById3 } from '../fn/address-controller/find-by-id-3';
-import { FindById3$Params } from '../fn/address-controller/find-by-id-3';
-import { save3 } from '../fn/address-controller/save-3';
-import { Save3$Params } from '../fn/address-controller/save-3';
+import { delete3 } from '../fn/address/delete-3';
+import { Delete3$Params } from '../fn/address/delete-3';
+import { findAll3 } from '../fn/address/find-all-3';
+import { FindAll3$Params } from '../fn/address/find-all-3';
+import { findById3 } from '../fn/address/find-by-id-3';
+import { FindById3$Params } from '../fn/address/find-by-id-3';
+import { save3 } from '../fn/address/save-3';
+import { Save3$Params } from '../fn/address/save-3';
 
 @Injectable({ providedIn: 'root' })
-export class AddressControllerService extends BaseService {
+export class AddressService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }

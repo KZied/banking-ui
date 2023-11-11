@@ -17,7 +17,6 @@ import { ManageUsersComponent } from './admin/manage-users/manage-users.componen
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { MainAdminPageComponent } from './admin/main-admin-page/main-admin-page.component';
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
-import {FirstService} from "./services/first.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
@@ -48,7 +47,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
   //   providedIn: 'root'
   // })
   providers: [
-    FirstService,
     HttpClient
   ],
   bootstrap: [AppComponent]

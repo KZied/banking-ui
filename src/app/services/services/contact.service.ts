@@ -10,19 +10,19 @@ import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
 import { ContactDto } from '../models/contact-dto';
-import { delete2 } from '../fn/contact-controller/delete-2';
-import { Delete2$Params } from '../fn/contact-controller/delete-2';
-import { findAll2 } from '../fn/contact-controller/find-all-2';
-import { FindAll2$Params } from '../fn/contact-controller/find-all-2';
-import { findById2 } from '../fn/contact-controller/find-by-id-2';
-import { FindById2$Params } from '../fn/contact-controller/find-by-id-2';
-import { findByUserId1 } from '../fn/contact-controller/find-by-user-id-1';
-import { FindByUserId1$Params } from '../fn/contact-controller/find-by-user-id-1';
-import { save2 } from '../fn/contact-controller/save-2';
-import { Save2$Params } from '../fn/contact-controller/save-2';
+import { delete2 } from '../fn/contact/delete-2';
+import { Delete2$Params } from '../fn/contact/delete-2';
+import { findAll2 } from '../fn/contact/find-all-2';
+import { FindAll2$Params } from '../fn/contact/find-all-2';
+import { findById2 } from '../fn/contact/find-by-id-2';
+import { FindById2$Params } from '../fn/contact/find-by-id-2';
+import { findByUserId1 } from '../fn/contact/find-by-user-id-1';
+import { FindByUserId1$Params } from '../fn/contact/find-by-user-id-1';
+import { save2 } from '../fn/contact/save-2';
+import { Save2$Params } from '../fn/contact/save-2';
 
 @Injectable({ providedIn: 'root' })
-export class ContactControllerService extends BaseService {
+export class ContactService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
   }
