@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "api-gen": "ng-openapi-gen --input ./src/app/swagger/swagger.json --output src/app/services"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,7 @@
     "@fortawesome/fontawesome-free": "^6.4.2",
     "bootstrap": "^5.3.2",
     "jquery": "^3.7.1",
+    "ng-openapi-gen": "^0.50.4",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
