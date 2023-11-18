@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {AuthenticationService} from "../../services/services/authentication.service";
+import {AuthenticationRequest} from "../../services/models/authentication-request";
 
 @Component({
   selector: 'app-login',
@@ -8,25 +10,36 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  urlParam = 'Not yet defined';
-  queryParam = 'Not available yet';
+  authenticationRequest:AuthenticationRequest = {};
+  errorMessages: Array<String> = [];
 
-  //Inject the router service
   constructor(
     private router:Router,
-    private activatedRoute: ActivatedRoute) {
-    console.log(this.activatedRoute);
-    // get param from URL
-    this.urlParam = this.activatedRoute.snapshot.params['someText'];
-    this.queryParam = this.activatedRoute.snapshot.queryParams['x'];
+    private authenticationService:AuthenticationService) {
   }
 
   ngOnInit(): void {
   }
 
+  login(){
+    this.errorMessages = [];
+    this.authenticationService.authenticate({
+      body: this.authenticationRequest
+    }).subscribe({
+      next: (data) => {
+        console.log(data);
+        // localStorage.setItem('token',data.token as string);
+      },
+      error: (err) => {
+        console.log(err);
+        this.errorMessages.push(err.error.errorMessage);
+      }
+    })
+  }
+
   async register() {
     //this method returns a promise: either then... or async..await
-    // register is the route that I already defined in app-routing
+    //register is the route that I already defined in app-routing
     await this.router.navigate(['register']);
   }
 }
