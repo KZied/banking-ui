@@ -41,7 +41,12 @@ export class RegisterComponent implements OnInit {
         await this.router.navigate(['confirm-register']);
       },
       error: (err) => {
-        this.errorMessages = err.error.validationErrors
+        if (err.error !== null){
+          this.errorMessages = err.error.validationErrors;
+        }
+        else {
+          this.errorMessages.push("All the fields are empty !");
+        }
       }
     });
   }
