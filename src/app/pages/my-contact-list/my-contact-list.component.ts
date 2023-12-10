@@ -25,7 +25,7 @@ export class MyContactListComponent implements OnInit {
       next: (data) => {
         this.contacts = data;
       }
-    })
+    });
   }
 
 }

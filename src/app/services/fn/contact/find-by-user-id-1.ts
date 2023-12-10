@@ -28,4 +28,4 @@ export function findByUserId1(http: HttpClient, rootUrl: string, params: FindByU
   );
 }
 
-findByUserId1.PATH = '/contacts/users/user-id';
+findByUserId1.PATH = '/contacts/users/{user-id}';

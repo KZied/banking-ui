@@ -739,7 +739,7 @@
         }
       }
     },
-    "/contacts/users/user-id": {
+    "/contacts/users/{user-id}": {
       "get": {
         "tags": [
           "contact"
