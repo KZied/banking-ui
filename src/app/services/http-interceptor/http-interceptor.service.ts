@@ -11,7 +11,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (!req.url.includes('/authenticate') || !req.url.includes('/register')){
-      const token = localStorage.getItem('token ');
+      const token = localStorage.getItem('token');
       if (token){
         // assign the token;
         const authReq = req.clone({
