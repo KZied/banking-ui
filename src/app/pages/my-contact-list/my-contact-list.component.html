@@ -16,26 +16,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td class="cursor-pointer">
-          <em class="fas fa-edit text-primary"></em>&nbsp;|&nbsp;<em class="fas fa-trash text-danger"></em>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td class="cursor-pointer">
-          <em class="fas fa-edit text-primary"></em>&nbsp;|&nbsp;<em class="fas fa-trash text-danger"></em>
-        </td>      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td>Larry the Bird</td>
-
+      <tr *ngFor="let ct of contacts">
+        <th scope="row">{{ct.firstName}}</th>
+        <td>{{ct.lastName}}</td>
+        <td>{{ct.iban}}</td>
         <td class="cursor-pointer">
           <em class="fas fa-edit text-primary"></em>&nbsp;|&nbsp;<em class="fas fa-trash text-danger"></em>
         </td>
