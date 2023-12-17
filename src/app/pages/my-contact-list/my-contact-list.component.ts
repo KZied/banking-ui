@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ContactService} from "../../services/services/contact.service";
 import {ContactDto} from "../../services/models/contact-dto";
 import {HelperService} from "../../services/helper/helper.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-my-contact-list',
@@ -14,7 +15,8 @@ export class MyContactListComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private router:Router
   ) {
   }
 
@@ -28,4 +30,7 @@ export class MyContactListComponent implements OnInit {
     });
   }
 
+  update(id: number | undefined) {
+    this.router.navigate(['user/new-contact', id]);
+  }
 }
