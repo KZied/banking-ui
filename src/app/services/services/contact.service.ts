@@ -59,7 +59,7 @@ export class ContactService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `save2()` instead.
    *
-   * This method doesn't expect any request body.
+   * This method sends `application/json` and handles request body of type `application/json`.
    */
   save2$Response(params: Save2$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
     return save2(this.http, this.rootUrl, params, context);
@@ -69,7 +69,7 @@ export class ContactService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `save2$Response()` instead.
    *
-   * This method doesn't expect any request body.
+   * This method sends `application/json` and handles request body of type `application/json`.
    */
   save2(params: Save2$Params, context?: HttpContext): Observable<number> {
     return this.save2$Response(params, context).pipe(
@@ -128,7 +128,7 @@ export class ContactService extends BaseService {
   }
 
   /** Path part for operation `findByUserId1()` */
-  static readonly FindByUserId1Path = '/contacts/users/user-id';
+  static readonly FindByUserId1Path = '/contacts/users/{user-id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

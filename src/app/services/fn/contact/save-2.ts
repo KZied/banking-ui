@@ -9,13 +9,13 @@ import { RequestBuilder } from '../../request-builder';
 import { ContactDto } from '../../models/contact-dto';
 
 export interface Save2$Params {
-  contactDto: ContactDto;
+      body: ContactDto
 }
 
 export function save2(http: HttpClient, rootUrl: string, params: Save2$Params, context?: HttpContext): Observable<StrictHttpResponse<number>> {
   const rb = new RequestBuilder(rootUrl, save2.PATH, 'post');
   if (params) {
-    rb.query('contactDto', params.contactDto, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http.request(
