@@ -1,38 +1,38 @@
 <div class="p-3">
   <h2>New transaction</h2>
+  <div *ngIf="errorMessages.length>0" class="alert alert-danger" role="alert">
+    <p *ngFor="let msg of errorMessages">{{msg}}</p>
+  </div>
   <div class="card p-3">
-    <h3>Your account balance: 20 000€</h3>
+    <h3>Your account balance: {{accountBalance}}€</h3>
     <div class="mb-3">
       <label class="form-label">Transaction type</label>
-      <select class="form-select" aria-label="Default select example">
+      <select [(ngModel)]="transaction.type" class="form-select" aria-label="Default select example">
         <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option [ngValue]="'DEPOSIT'">DEPOSIT</option>
+        <option [ngValue]="'TRANSFER'">TRANSFER</option>
       </select>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Select a contact</label>
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+    <div class="mb-3" *ngIf="transaction.type === 'TRANSFER'">
+      <label class="form-label">Select a contact from the list</label>
+      <select [(ngModel)]="transaction.destinationIban" class="form-select" aria-label="Default select example">
+        <option [ngValue]="''">Open this select menu</option>
+        <option *ngFor="let ct of contacts" [ngValue]="ct.iban">{{ct.firstName + ' ' + ct.lastName}}</option>
       </select>
     </div>
-    <div class="mb-3">
+    <div class="mb-3" *ngIf="transaction.type">
       <label for="amount" class="form-label">Amount</label>
-      <input type="number" class="form-control" id="amount" placeholder="EX: 500 €">
+      <input [(ngModel)]="transaction.amount" type="number" class="form-control" id="amount" placeholder="EX: 500 €">
     </div>
-    <div class="mb-3">
+    <div class="mb-3" *ngIf="transaction.type === 'TRANSFER'">
       <label for="iban" class="form-label">IBAN</label>
-      <input type="number" class="form-control" id="iban" placeholder="ES45 541515 45114">
+      <input [(ngModel)]="transaction.destinationIban" type="text" class="form-control" id="iban" placeholder="ES45 541515 45114">
     </div>
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn btn-link">
+      <button (click)="cancel()" type="button" class="btn btn-link">
         <em class="fas fa-cancel"></em>&nbsp;Cancel
       </button>
-      <button type="button" class="btn btn-danger">
+      <button (click)="save()" type="button" class="btn btn-danger">
         <em class="fas fa-save"></em>&nbsp;Save
       </button>
     </div>
