@@ -3,7 +3,7 @@
   <div class="d-flex justify-content-end mb-3">
     <div class="form-check form-switch">
       <label class="form-check-label" for="flexSwitchCheckDefault">Show inactive users only</label>
-      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+      <input [(ngModel)]="showInactiveCustomers" (change)="filterCustomers()" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
     </div>
   </div>
   <div>
@@ -18,54 +18,27 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+      <tr *ngFor="let c of customers">
+        <th>{{c.firstName}}</th>
+        <td>{{c.lastName}}</td>
+        <td>{{c.iban}}</td>
         <td>
-          <span class="badge text-bg-warning">Inactive</span>
+          <span class="badge"
+                [class.bg-success]="c.active"
+                [class.bg-warning]="!c.active"
+          >{{c.active? 'Active':'Inactive'}}</span>
         </td>
         <td class="cursor-pointer">
           <div class="d-flex flex-row justify-content-start align-items-center">
             <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="active-status">
+              <input class="form-check-input" type="checkbox" role="switch" id="active-status"
+                     [(ngModel)]="c.active"
+                     [checked]="c.active"
+                     (change)="customerIdToUpdate = c.id;customerStatusToUpdate = c.active;openModal();"
+              >
             </div>
-            &nbsp;|&nbsp;
-            <em class="ms-2 fas fa-trash text-danger"></em>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>
-          <span class="badge text-bg-warning">Inactive</span>
-        </td>
-        <td class="cursor-pointer">
-          <div class="d-flex flex-row justify-content-start align-items-center">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="active-status">
-            </div>
-            &nbsp;|&nbsp;
-            <em class="ms-2 fas fa-trash text-danger"></em>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry the Bird</td>
-        <td>Larry the Bird</td>
-        <td>
-          <span class="badge text-bg-success">Active</span>
-        </td>
-        <td class="cursor-pointer">
-          <div class="d-flex flex-row justify-content-start align-items-center">
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="active-status" checked>
-            </div>
-            &nbsp;|&nbsp;
-            <em class="ms-2 fas fa-trash text-danger"></em>
+<!--            &nbsp;|&nbsp;-->
+<!--            <em class="ms-2 fas fa-trash text-danger"></em>-->
           </div>
         </td>
       </tr>
@@ -74,3 +47,27 @@
   </div>
 </div>
 
+<!---------------------- Modal ---------------------->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Confirm</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <p>Would you like to {{customerStatusToUpdate? 'activate':'deactivate'}} the selected customer ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-link" (click)="closeModal();customerIdToUpdate=-1;">
+          <em class="fas fa-times"></em>&nbsp;Cancel
+        </button>
+        <button (click)="changeCustomerStatus(customerStatusToUpdate, customerIdToUpdate)" type="button"
+                class="btn" data-dismiss="modal" [class.btn-success]="customerStatusToUpdate"
+                [class.btn-danger]="!customerStatusToUpdate">
+                <em></em>&nbsp;{{customerStatusToUpdate? 'Activate':'Deactivate'}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
